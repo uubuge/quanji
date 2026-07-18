@@ -101,20 +101,21 @@ function rd(){
       }
 
       return '<tr>'+
-        '<td><a class="file-link" href="'+eA(x.url)+'" target="_blank" rel="noopener">'+eH(x.name)+'</a></td>'+
+        '<td><a class="file-link" href="'+eA(x.url)+'" target="_blank" rel="noopener">'+eH(x.name)+'</a>'+
+          '<div class="btn-container">'+
+            '<div class="action-btns">'+
+              '<a class="action-btn download" href="'+eA(x.dlUrl)+'" target="_blank" rel="noopener" title="下载PDF">⬇ PDF</a>'+
+              '<a class="action-btn origin" href="'+eA(x.orig)+'" target="_blank" rel="noopener" title="魔搭原地址">🔗</a>'+
+            '</div>'+
+            computerBtns+mobileBtns+
+          '</div>'+
+        '</td>'+
         '<td><div class="action-btns">'+
           '<a class="action-btn download" href="'+eA(x.dlUrl)+'" target="_blank" rel="noopener" title="下载PDF">⬇ PDF</a>'+
           '<a class="action-btn origin" href="'+eA(x.orig)+'" target="_blank" rel="noopener" title="魔搭原地址">🔗</a>'+
         '</div></td>'+
         '<td>'+computerBtns+'</td>'+
         '<td>'+mobileBtns+'</td>'+
-        '<div class="btn-container">'+
-          '<div class="action-btns">'+
-            '<a class="action-btn download" href="'+eA(x.dlUrl)+'" target="_blank" rel="noopener" title="下载PDF">⬇ PDF</a>'+
-            '<a class="action-btn origin" href="'+eA(x.orig)+'" target="_blank" rel="noopener" title="魔搭原地址">🔗</a>'+
-          '</div>'+
-          computerBtns+mobileBtns+
-        '</div>'+
       '</tr>';
     }).join('');
   }
