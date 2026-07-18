@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>叶兴阳双语音标有声读物 PDF & APP 下载站</title>
+<style>
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #818cf8;
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  --bg: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --border: #e2e8f0;
+  --hover: #f1f5f9;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --selected: #e0e7ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.navbar {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 1.5rem;
+}
+
+.navbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.navbar .brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.3);
+}
+
+.tabs {
+  display: flex;
+  gap: 0.2rem;
+  overflow-x: auto;
+  flex: 1;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  align-items: center;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  text-decoration: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  color: var(--text-secondary);
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+  font-family: inherit;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  position: relative;
+}
+
+.tab-btn:hover {
+  background: var(--hover);
+  color: var(--primary-dark);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(99,102,241,0.35);
+}
+
+.mobile-tip {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-bottom: 1px solid #fcd34d;
+  color: #92400e;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-align: center;
+}
+.mobile-tip-icon { font-size: 1.1rem; flex-shrink: 0; }
+.mobile-tip-text { flex: 1; line-height: 1.4; }
+.mobile-tip-close {
+  background: none; border: none; font-size: 1.1rem; cursor: pointer;
+  color: #92400e; opacity: 0.6; padding: 0.2rem 0.35rem; border-radius: 4px; flex-shrink: 0; line-height: 1;
+}
+.mobile-tip-close:hover { opacity: 1; background: rgba(146,64,14,0.1); }
+
+.hero {
+  background: linear-gradient(135deg, #3730a3 0%, #4f46e5 40%, #6366f1 70%, #8b5cf6 100%);
+  color: white;
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  position: relative;
+  letter-spacing: -0.5px;
+}
+
+.hero .sub {
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  position: relative;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.hero-stat { text-align: center; }
+
+.hero-stat .num {
+  font-size: 2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-stat .lbl {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 0.2rem;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.8rem;
+  padding: 0.7rem 1.5rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  color: white;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.contact-btn:hover { background: rgba(255,255,255,0.25); }
+.contact-btn .qq { color: #fbbf24; font-weight: 600; }
+
+.hero-notice {
+  display: block;
+  width: fit-content;
+  margin: 2rem auto 0;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(251,191,36,0.22), rgba(245,158,11,0.18));
+  border: 1px solid rgba(253,224,71,0.4);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1.6;
+  animation: noticeGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes noticeGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(253,224,71,0.15), inset 0 0 8px rgba(253,224,71,0.05); }
+  50% { box-shadow: 0 0 20px rgba(253,224,71,0.35), inset 0 0 14px rgba(253,224,71,0.1); }
+}
+
+.hero-notice-link {
+  display: inline;
+  color: #fde047;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: all 0.15s;
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+}
+
+.hero-notice-link:hover { color: #fff; background: rgba(253,224,71,0.3); }
+
+.content {
+  max-width: 1400px;
+  margin: -2rem auto 2rem;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.cat-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.cat-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cat-header-left { display: flex; align-items: center; gap: 0.75rem; }
+
+.cat-header-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.cat-header-info { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.cat-header-info h2 { font-size: 1.15rem; font-weight: 600; color: var(--text); }
+
+.cat-header-tags { display: flex; gap: 0.4rem; }
+
+.tag {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.tag-green  { background: #dcfce7; color: #166534; }
+.tag-amber  { background: #fef3c7; color: #92400e; }
+.tag-purple { background: #ede9fe; color: #5b21b6; }
+.tag-blue   { background: #dbeafe; color: #1e40af; }
+.tag-pink   { background: #fce7f3; color: #be185d; }
+.tag-red    { background: #fee2e2; color: #991b1b; }
+.tag-cyan   { background: #ecfeff; color: #0e7490; }
+
+.cat-header-count {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  background: #fef3c7;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+}
+
+.cat-header-count strong { color: var(--accent); font-size: 1.05rem; }
+
+.toolbar {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  background: #fafbfc;
+}
+
+.toolbar .search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+  max-width: 400px;
+}
+
+.toolbar .search-wrap .s-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.toolbar input[type="text"] {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: #fff;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.toolbar input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+}
+
+.toolbar input[type="text"]::placeholder { color: var(--text-muted); }
+
+.file-table-wrap { overflow-x: auto; }
+
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  table-layout: fixed;
+}
+
+.file-table thead th {
+  padding: 0.5rem 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: #f8fafc;
+  white-space: nowrap;
+}
+
+.file-table thead th:first-child {
+  text-align: left;
+  width: 55%;
+}
+
+.file-table thead th:nth-child(2),
+.file-table thead th:nth-child(3),
+.file-table thead th:nth-child(4) {
+  width: auto;
+}
+
+.file-table tbody td {
+  padding: 0.5rem 0.4rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  vertical-align: middle;
+  text-align: center;
+  min-height: 44px;
+  display: table-cell;
+}
+
+.file-table tbody tr { transition: background 0.15s; }
+.file-table tbody tr:hover { background: #f8fafc; }
+
+.file-table tbody td:first-child {
+  text-align: left;
+  width: 55%;
+}
+
+.file-table .file-link {
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.file-table .file-link:hover { color: var(--primary); text-decoration: underline; }
+
+.btn-container { display: none; }
+
+.action-btns {
+  display: flex;
+  gap: 0.2rem;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+}
+
+.action-btn {
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.72rem;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  line-height: 1.2;
+  height: 28px;
+  min-width: 60px;
+}
+.action-btn:hover { background: var(--hover); border-color: #cbd5e1; }
+
+.action-btn.read {
+  color: var(--primary-dark);
+  border-color: #c7d2fe;
+  background: #eef2ff;
+}
+.action-btn.read:hover { background: #e0e7ff; border-color: #a5b4fc; }
+
+.action-btn.download {
+  color: #b45309;
+  border-color: #fde68a;
+  background: #fffbeb;
+}
+.action-btn.download:hover { background: #fef3c7; border-color: #fcd34d; }
+
+.action-btn.preview {
+  color: #0d9488;
+  border-color: #99f6e4;
+  background: #f0fdfa;
+}
+.action-btn.preview:hover { background: #ccfbf1; border-color: #5eead4; }
+
+.action-btn.origin {
+  color: #7c3aed;
+  border-color: #c4b5fd;
+  background: #f5f3ff;
+}
+.action-btn.origin:hover { background: #ede9fe; border-color: #a78bfa; }
+
+.action-btn.computer {
+  color: #0e7490;
+  border-color: #67e8f9;
+  background: #ecfeff;
+}
+.action-btn.computer:hover { background: #cffafe; border-color: #22d3ee; }
+
+.action-btn.mobile {
+  color: #991b1b;
+  border-color: #fca5a5;
+  background: #fef2f2;
+}
+.action-btn.mobile:hover { background: #fee2e2; border-color: #f87171; }
+
+.status-bar {
+  padding: 0.85rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  background: #fafbfc;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.page-btn {
+  min-width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.page-btn:hover:not(:disabled):not(.active) { background: var(--hover); border-color: #cbd5e1; }
+.page-btn.active { background: var(--primary); color: white; border-color: var(--primary); font-weight: 600; }
+.page-btn:disabled { opacity: 0.4; cursor: default; }
+.page-btn.arrow { font-size: 1.1rem; padding: 0 0.6rem; }
+.page-info { font-size: 0.85rem; color: var(--text-muted); margin: 0 0.5rem; }
+
+.loading { text-align: center; padding: 4rem; color: var(--text-muted); }
+.spinner {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e2e8f0;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.empty { text-align: center; padding: 4rem; color: var(--text-muted); }
+.empty .e-icon { font-size: 3rem; margin-bottom: 0.75rem; opacity: 0.4; }
+
+.footer {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.footer a { color: var(--primary); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+.footer .sep { margin: 0 0.4rem; opacity: 0.4; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+::selection { background: #c7d2fe; color: #312e81; }
+
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+  .mobile-tip { display: flex; }
+
+  .navbar {
+    padding: 0 0.6rem;
+    height: 52px;
+    gap: 0.5rem;
+  }
+  .navbar .brand { gap: 0.35rem; }
+  .navbar .brand span { font-size: 0.8rem; }
+  .navbar .brand-icon {
+    width: 30px; height: 30px;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    box-shadow: 0 1px 6px rgba(99,102,241,0.25);
+  }
+  .tab-btn {
+    padding: 0.32rem 0.55rem;
+    font-size: 0.73rem;
+    border-radius: 7px;
+  }
+  .tabs { gap: 0.1rem; }
+
+  .hero { padding: 1.8rem 0.8rem 2.5rem; }
+  .hero h1 { font-size: 1.15rem; letter-spacing: 0; padding: 0 0.25rem; word-break: break-all; }
+  .hero .sub { font-size: 0.73rem; margin-top: 0.35rem; padding: 0 0.25rem; word-break: break-word; }
+  .hero-stats { gap: 1.4rem; margin-top: 1.2rem; flex-wrap: wrap; justify-content: space-evenly; }
+  .hero-stat { min-width: 70px; }
+  .hero-stat .num { font-size: 1.3rem; }
+  .hero-stat .lbl { font-size: 0.7rem; }
+  .contact-btn {
+    font-size: 0.75rem;
+    padding: 0.45rem 0.9rem;
+    margin-top: 1rem;
+    white-space: normal;
+    text-align: center;
+    max-width: calc(100% - 1rem);
+  }
+  .hero-notice { margin-top: 1.2rem; padding: 0.4rem 0.7rem; font-size: 0.7rem; width: calc(100% - 1.2rem); word-break: break-word; }
+
+  .content { padding: 0 0.4rem; margin-top: -1rem; margin-bottom: 1rem; }
+  .cat-card { border-radius: 12px; }
+
+  .cat-header { padding: 0.65rem 0.7rem; gap: 0.5rem; }
+  .cat-header-icon { width: 34px; height: 34px; border-radius: 8px; font-size: 1rem; }
+  .cat-header-info h2 { font-size: 0.9rem; }
+  .cat-header-tags { gap: 0.2rem; flex-wrap: wrap; }
+  .tag { font-size: 0.62rem; padding: 0.13rem 0.4rem; }
+  .cat-header-count { font-size: 0.72rem; padding: 0.22rem 0.55rem; }
+
+  .toolbar { padding: 0.6rem 0.7rem; gap: 0.4rem; }
+  .toolbar .search-wrap { max-width: none; min-width: auto; width: 100%; }
+  .toolbar input[type="text"] { padding: 0.5rem 0.7rem 0.5rem 2rem; font-size: 0.8rem; border-radius: 8px; }
+  .toolbar .search-wrap .s-icon { left: 10px; font-size: 0.75rem; }
+
+  .file-table-wrap { -webkit-overflow-scrolling: touch; }
+  .file-table { min-width: auto; }
+  .file-table thead th,
+  .file-table tbody td { padding: 0.5rem 0.6rem; font-size: 0.78rem; }
+  .file-table thead th { font-size: 0.68rem; letter-spacing: 0; }
+  .file-table .file-link { font-size: 0.8rem; word-break: break-all; display: block; line-height: 1.35; }
+  .action-btn { padding: 0.32rem 0.55rem; font-size: 0.7rem; border-radius: 6px; }
+
+  .status-bar { padding: 0.55rem 0.7rem; font-size: 0.75rem; }
+
+  .pagination { padding: 0.7rem 0.35rem 0.85rem; gap: 0.15rem; flex-wrap: wrap; justify-content: center; }
+  .page-btn { min-width: 30px; height: 30px; font-size: 0.72rem; border-radius: 7px; }
+  .page-btn.arrow { font-size: 0.85rem; padding: 0 0.35rem; }
+  .page-info { font-size: 0.72rem; margin: 0 0.2rem; }
+
+  .loading, .empty { padding: 2rem 1rem; }
+  .spinner { width: 30px; height: 30px; }
+  .empty .e-icon { font-size: 2rem; }
+
+  .footer { padding: 1.3rem 0.8rem; font-size: 0.75rem; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 13px; }
+
+  .mobile-tip { padding: 0.4rem 0.55rem; font-size: 0.72rem; gap: 0.35rem; }
+  .mobile-tip-icon { font-size: 0.95rem; }
+
+  .navbar { padding: 0 0.3rem 0 0.4rem; height: 46px; gap: 0.2rem; }
+  .navbar .brand { gap: 0; }
+  .navbar .brand span { display: none; }
+  .navbar .brand-icon { width: 28px; height: 28px; border-radius: 6px; font-size: 0.85rem; flex-shrink: 0; }
+  .tab-btn { padding: 0.28rem 0.45rem; font-size: 0.68rem; border-radius: 6px; }
+  .tabs { gap: 0.05rem; padding-right: 0.2rem; }
+
+  .hero { padding: 1.4rem 0.5rem 2rem; }
+  .hero h1 { font-size: 1rem; padding: 0; word-break: normal; line-height: 1.35; }
+  .hero .sub { font-size: 0.68rem; padding: 0; margin-top: 0.3rem; }
+  .hero-stats { gap: 0.8rem; margin-top: 0.9rem; }
+  .hero-stat { min-width: 55px; }
+  .hero-stat .num { font-size: 1.1rem; }
+  .hero-stat .lbl { font-size: 0.65rem; }
+  .contact-btn { font-size: 0.68rem; padding: 0.4rem 0.7rem; margin-top: 0.8rem; max-width: calc(100% - 0.8rem); line-height: 1.45; }
+  .hero-notice { margin-top: 1rem; padding: 0.38rem 0.55rem; font-size: 0.65rem; width: calc(100% - 0.8rem); line-height: 1.5; }
+  .hero-notice-link { display: inline-block; max-width: 70vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: bottom; }
+
+  .content { padding: 0 0.15rem; margin-top: -0.8rem; margin-bottom: 0.8rem; }
+  .cat-card { border-radius: 10px; }
+
+  .cat-header { padding: 0.5rem 0.55rem; gap: 0.35rem; }
+  .cat-header-count { margin-left: 0; width: 100%; text-align: center; font-size: 0.7rem; padding: 0.2rem 0.45rem; }
+  .cat-header-icon { width: 30px; height: 30px; font-size: 0.9rem; border-radius: 7px; }
+  .cat-header-info h2 { font-size: 0.82rem; word-break: break-word; }
+  .tag { font-size: 0.6rem; padding: 0.1rem 0.35rem; }
+
+  .toolbar { padding: 0.5rem 0.55rem; }
+  .toolbar input[type="text"] { padding: 0.45rem 0.55rem 0.45rem 1.75rem; font-size: 0.75rem; border-radius: 7px; }
+  .toolbar .search-wrap .s-icon { left: 8px; font-size: 0.7rem; }
+
+  .file-table { min-width: auto; width: 100%; }
+  .file-table, .file-table thead, .file-table tbody,
+  .file-table th, .file-table td, .file-table tr { display: block; }
+  .file-table thead { display: none; }
+  .file-table tbody td { padding: 0; font-size: 0; border-bottom: none; text-align: left; }
+  .file-table tbody td:first-child { padding: 0.3rem 0.4rem 0.2rem; width: 100%; font-size: 0.76rem; }
+  .file-table tbody td:nth-child(2),
+  .file-table tbody td:nth-child(3),
+  .file-table tbody td:nth-child(4) { 
+    display: inline; 
+    padding: 0; 
+    margin: 0; 
+    width: auto; 
+    font-size: 0; 
+  }
+  .file-table tbody td:last-child { padding-bottom: 0; }
+  .file-table tbody tr { 
+    border-bottom: none; 
+    padding: 0.25rem; 
+    background: #fff; 
+    border-radius: 10px; 
+    margin-bottom: 0.4rem; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); 
+    display: flex; 
+    flex-direction: column; 
+  }
+  .file-table .file-link { font-size: 0.76rem; word-break: break-all; line-height: 1.35; display: block; font-weight: 500; }
+  .file-table tbody tr > .btn-container { 
+    display: flex !important; 
+    gap: 0.15rem; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    justify-content: flex-start; 
+    padding: 0 0.4rem 0.25rem; 
+    margin-top: 0.1rem; 
+  }
+  .file-table tbody td:nth-child(2),
+  .file-table tbody td:nth-child(3),
+  .file-table tbody td:nth-child(4) { display: none !important; }
+  .file-table tbody tr .action-btns { 
+    display: inline-flex; 
+    gap: 0.15rem; 
+    flex-wrap: nowrap; 
+    align-items: center; 
+    justify-content: flex-start; 
+    min-height: auto; 
+    padding: 0; 
+    margin-right: 0.15rem; 
+    font-size: 0; 
+  }
+  .file-table tbody tr .action-btns:last-child { margin-right: 0; }
+  .action-btn { 
+    padding: 0.15rem 0.25rem; 
+    font-size: 0.55rem; 
+    height: auto; 
+    min-width: 34px; 
+    border-radius: 5px; 
+    white-space: nowrap; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-shrink: 0; 
+  }
+
+  .status-bar { padding: 0.45rem 0.55rem; font-size: 0.7rem; }
+
+  .pagination { padding: 0.5rem 0.25rem 0.7rem; gap: 0.1rem; }
+  .page-btn { min-width: 27px; height: 27px; font-size: 0.68rem; border-radius: 6px; }
+  .page-btn.arrow { font-size: 0.78rem; padding: 0 0.25rem; }
+  .page-info { font-size: 0.65rem; margin: 0 0.12rem; }
+
+  .footer { padding: 1rem 0.6rem; font-size: 0.68rem; line-height: 1.55; }
+  .footer strong { font-size: 0.72rem; display: block; margin-bottom: 0.2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="mobile-tip" id="mobileTip">
+  <span class="mobile-tip-icon">💻</span>
+  <span class="mobile-tip-text">请使用电脑浏览器下载 PDF 文件</span>
+  <button class="mobile-tip-close" onclick="document.getElementById('mobileTip').style.display='none'" title="关闭">✕</button>
+</div>
+
+<nav class="navbar">
+  <div class="brand">
+    <div class="brand-icon">📖</div>
+    <span>叶兴阳有声读物</span>
+  </div>
+  <div class="tabs" id="tabBar"></div>
+</nav>
+
+<section class="hero">
+  <h1>叶兴阳双语音标有声读物 PDF & APP 下载站</h1>
+  <p class="sub">美式排版 · 英式排版 — 长篇名著 · 短篇精选 · 杂书经典 · 古典中文 · APP下载</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num" id="heroCats">—</div><div class="lbl">分类</div></div>
+    <div class="hero-stat"><div class="num" id="heroTotal">—</div><div class="lbl">PDF 文件</div></div>
+    <div class="hero-stat"><div class="num" id="heroCurrent">—</div><div class="lbl">当前分类</div></div>
+  </div>
+  <div class="contact-btn" onclick="copyQQ()">
+    <span>💬</span>
+    <span>如需定制书籍，请联系 QQ：<span class="qq">704100972</span></span>
+  </div>
+  <div class="hero-notice">
+    💡 阅读或下载遇到问题？请访问
+    <a class="hero-notice-link" href="https://modelscope.cn/datasets/quejing/quanjiPDF/files" target="_blank" rel="noopener">modelscope.cn/datasets/quejing/quanjiPDF/files</a>
+    直接下载
+  </div>
+</section>
+
+<div class="content">
+  <div class="cat-card" id="catCard">
+    <div class="cat-header" id="catHeader">
+      <div class="cat-header-left">
+        <div class="cat-header-icon" id="catIcon">📜</div>
+        <div class="cat-header-info">
+          <h2 id="catTitle">—</h2>
+          <div class="cat-header-tags" id="catTags"></div>
+        </div>
+      </div>
+      <div class="cat-header-count" id="catCount">—</div>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-wrap">
+        <span class="s-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="输入文件名关键词搜索..." oninput="onSearch(this.value)">
+      </div>
+    </div>
+
+    <div class="file-table-wrap">
+      <table class="file-table">
+        <thead>
+          <tr><th>文件名</th><th style="white-space:nowrap">PDF操作</th><th style="white-space:nowrap">电脑版(ZIP)</th><th style="white-space:nowrap">手机版(APK)</th></tr>
+        </thead>
+        <tbody id="fileBody">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="status-bar" id="statusBar">—</div>
+
+    <div class="pagination" id="pagination"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <strong>叶兴阳双语音标有声读物</strong>
+  <div>数据来源于 <a href="https://modelscope.cn/datasets/quejing/quanjiPDF/files" target="_blank" rel="noopener">ModelScope / quejing</a> · 本站仅提供索引链接，版权归原作者所有</div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+const S={
+  B:window.__BASE_URL__||'https://modelscope.cn/datasets/quejing/quanjiPDF/resolve/master/',
+  C:window.__INDEX__||[],
+  D:{},A:0,P:1,PS:50,Q:'',L:new Set()
+};
+
+function vu(c,f){return S.B+'/'+encodeURI(c+'/'+f).replace(/%2F/g,'/')}
+function du(c,f){return S.B+encodeURIComponent(c+'/'+f)}
+function ou(c,f){return'https://modelscope.cn/datasets/quejing/quanjiPDF/file/view/master/'+encodeURIComponent(c+'/'+f)}
+function ph(){const r=decodeURIComponent(location.hash.slice(1)),i=r.indexOf('&page=');return{n:i>=0?r.slice(0,i):r||'',p:i>=0?+r.slice(i+6):0}}
+function uh(n,p){let h='#'+encodeURIComponent(n);if(p&&p>1)h+='&page='+p;history.replaceState(null,'',h)}
+
+(function(){
+  try{
+    if(!S.C.length)throw new Error('e');
+    document.getElementById('heroCats').textContent=S.C.length;
+    document.getElementById('heroTotal').textContent=S.C.reduce((s,c)=>s+c.count,0).toLocaleString();
+    buildTabs();
+    const{n,p}=ph();
+    const j=n?S.C.findIndex(c=>c.name===n):-1;
+    st(j>=0?j:0,false,p);
+    window.addEventListener('hashchange',()=>{const h=ph();const k=h.n?S.C.findIndex(c=>c.name===h.n):-1;if(k>=0&&k!==S.A)st(k,false,h.p)});
+  }catch(e){
+    document.getElementById('fileBody').innerHTML='<tr><td colspan="4"><div class="empty"><div class="e-icon">⚠️</div><p>数据加载失败，请检查网络连接或稍后重试</p></div></td></tr>';
+  }
+})();
+
+function buildTabs(){
+  document.getElementById('tabBar').innerHTML=S.C.map((c,i)=>
+    '<a class="tab-btn'+(i===0?' active':'')+'" href="#'+encodeURIComponent(c.name)+'" data-idx="'+i+'" onclick="st('+i+');return false">'+
+    eH(c.name.replace(/15000|20001|pdf|PDF/gi,'').replace('美式','·美式').replace('英式','·英式'))+'</a>'
+  ).join('');
+}
+
+function st(idx,setH,pg){
+  S.A=idx;S.P=(pg&&pg>0)?pg:1;S.Q='';
+  const c=S.C[idx];
+  if(setH!==false)uh(c.name,S.P);
+
+  document.getElementById('heroCurrent').textContent=c.count.toLocaleString();
+
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.toggle('active',+b.dataset.idx===idx));
+
+  const lb=c.name,T=[];
+  if(lb.includes('古典'))T.push('<span class="tag tag-purple">古典</span>');
+  if(lb.includes('杂书'))T.push('<span class="tag tag-amber">杂书</span>');
+  if(lb.includes('长篇'))T.push('<span class="tag tag-blue">长篇</span>');
+  if(lb.includes('短篇'))T.push('<span class="tag tag-green">短篇</span>');
+  if(lb.includes('美式'))T.push('<span class="tag tag-amber">美式</span>');
+  if(lb.includes('英式'))T.push('<span class="tag tag-pink">英式</span>');
+
+  document.getElementById('catTitle').textContent=lb.replace(/15000|20001|pdf|PDF/gi,'').replace('美式','·美式').replace('英式','·英式');
+  document.getElementById('catTags').innerHTML=T.join('');
+  document.getElementById('catCount').innerHTML='<strong>'+c.count.toLocaleString()+'</strong> 个 PDF';
+  document.getElementById('catIcon').textContent=['📜','🏛️','📖','📚','📄','✒️','📕','📗'][idx]||'📘';
+
+  document.getElementById('searchInput').value='';
+  document.getElementById('fileBody').innerHTML='<tr><td colspan="4"><div class="loading"><div class="spinner"></div><p>加载中…</p></div></td></tr>';
+  document.getElementById('statusBar').textContent='—';
+  document.getElementById('pagination').innerHTML='';
+
+  if(!S.D[lb])lc(lb);else rd();
+}
+
+async function lc(cn){
+  const c=S.C.find(x=>x.name===cn);if(!c)return;
+  const ms=c.batches.filter(b=>!S.L.has(b.file));
+  if(ms.length){try{await Promise.all(ms.map(b=>fetch('data/'+b.file).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(d=>{window.__DATA__=window.__DATA__||{};window.__DATA__[b.file]=d;S.L.add(b.file)})))}catch(e){document.getElementById('fileBody').innerHTML='<tr><td colspan="4"><div class="empty"><div class="e-icon">⚠️</div><p>加载失败</p></div></td></tr>';return}}
+  const fs=[];
+  for(const b of c.batches){const r=window.__DATA__[b.file];if(!r)continue;for(const it of r){
+    const n=it.name,f=it.path;
+    fs.push({
+      name:n,
+      path:f,
+      url:vu(cn,f),
+      dlUrl:du(cn,f),
+      orig:ou(cn,f),
+      computer:it.computer||[],
+      mobile:it.mobile||[]
+    });
+  }}
+  S.D[cn]=fs;rd();
+}
+
+function rd(){
+  const cn=S.C[S.A].name,fs=S.D[cn]||[];
+  let f=fs;if(S.Q){const q=S.Q.toLowerCase();f=fs.filter(x=>x.name.toLowerCase().includes(q)||x.path.toLowerCase().includes(q))}
+  const tp=Math.ceil(f.length/S.PS);if(S.P>tp)S.P=Math.max(1,tp);if(!tp)S.P=1;
+  const stt=(S.P-1)*S.PS,pg=f.slice(stt,stt+S.PS);
+  const g=document.getElementById('fileBody');
+  if(!pg.length){
+    g.innerHTML='<tr><td colspan="4"><div class="empty"><div class="e-icon">🔍</div><p>无匹配结果</p></div></td></tr>';
+  }else{
+    g.innerHTML=pg.map(function(x){
+      var computerBtns='';
+      if(x.computer&&x.computer.length){
+        computerBtns='<div class="action-btns">';
+        x.computer.forEach(function(u){
+          computerBtns+='<a class="action-btn computer" href="'+eA(u)+'" target="_blank" rel="noopener" title="下载电脑版ZIP">💻 ZIP</a>';
+        });
+        computerBtns+='</div>';
+      }
+
+      var mobileBtns='';
+      if(x.mobile&&x.mobile.length){
+        mobileBtns='<div class="action-btns">';
+        x.mobile.forEach(function(u){
+          mobileBtns+='<a class="action-btn mobile" href="'+eA(u)+'" target="_blank" rel="noopener" title="下载手机版APK">📱 APK</a>';
+        });
+        mobileBtns+='</div>';
+      }
+
+      return '<tr>'+
+        '<td><a class="file-link" href="'+eA(x.url)+'" target="_blank" rel="noopener">'+eH(x.name)+'</a></td>'+
+        '<td><div class="action-btns">'+
+          '<a class="action-btn download" href="'+eA(x.dlUrl)+'" target="_blank" rel="noopener" title="下载PDF">⬇ PDF</a>'+
+          '<a class="action-btn origin" href="'+eA(x.orig)+'" target="_blank" rel="noopener" title="魔搭原地址">🔗</a>'+
+        '</div></td>'+
+        '<td>'+computerBtns+'</td>'+
+        '<td>'+mobileBtns+'</td>'+
+      '</tr>';
+    }).join('');
+  }
+  document.getElementById('statusBar').innerHTML='共 <strong>'+f.length.toLocaleString()+'</strong> 个文件';
+
+  const pp=document.getElementById('pagination');if(tp<=1){pp.innerHTML='';return}
+  let h='';
+  h+='<button class="page-btn arrow" onclick="gp('+(S.P-1)+')" '+(S.P<=1?'disabled':'')+'>←</button>';
+  const R=2;let a=Math.max(1,S.P-R),b=Math.min(tp,S.P+R);
+  if(a>1)h+='<button class="page-btn num-btn" onclick="gp(1)">1</button>';
+  if(a>2)h+='<span class="page-btn" style="pointer-events:none;border:none;background:transparent">…</span>';
+  for(let i=a;i<=b;i++)h+='<button class="page-btn'+(i===S.P?' active':'')+'" onclick="gp('+i+')">'+i+'</button>';
+  if(b<tp-1)h+='<span class="page-btn" style="pointer-events:none;border:none;background:transparent">…</span>';
+  if(b<tp)h+='<button class="page-btn" onclick="gp('+tp+')">'+tp+'</button>';
+  h+='<button class="page-btn arrow" onclick="gp('+(S.P+1)+')" '+(S.P>=tp?'disabled':'')+'>→</button>';
+  h+='<span class="page-info">'+S.P+' / '+tp+'</span>';pp.innerHTML=h;
+}
+
+function gp(p){const cn=S.C[S.A].name,fs=S.D[cn]||[],f=S.Q?fs.filter(x=>x.name.toLowerCase().includes(S.Q)||x.path.toLowerCase().includes(S.Q)):fs;const t=Math.ceil(f.length/S.PS);if(p<1||p>t)return;S.P=p;uh(cn,p);rd();document.getElementById('catCard').scrollIntoView({behavior:'smooth',block:'start'})}
+
+function os(v){clearTimeout(os._t);os._t=setTimeout(()=>{S.Q=v.trim().toLowerCase();S.P=1;rd()},250)}
+function onSearch(v){os(v);}
+
+function copyQQ(){navigator.clipboard.writeText('704100972').then(()=>alert('QQ号 704100972 已复制到剪贴板')).catch(()=>alert('QQ号：704100972'))}
+function eH(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function eA(s){return s.replace(/&/g,'&amp;').replace(/'/g,'&#39;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+</script>
+</body>
+</html>
